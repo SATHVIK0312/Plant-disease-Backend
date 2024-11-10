@@ -3,7 +3,11 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const app = express();
-app.use(cors());
+const corsOptions = {
+    origin: '*', // Replace with your frontend URL
+    credentials: true
+  };
+  app.use(cors(corsOptions));
 app.use(express.json()); // Add this line to parse JSON request bodies
 
 // MongoDB Connection
