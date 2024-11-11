@@ -61,21 +61,21 @@ app.put('/updateData', async (req, res) => {
 app.listen(5000, () => console.log("Server running on port 5000"));
 // PUT REQUEST
 // API to set ready status and data array
-app.post('/setData', async (req, res) => {
-  console.log(req.body);
-  const { ready, data } = req.body;
-  try {
-    let doc = await FallSem.findOne({});
-    if (doc) {
-      doc.ready = ready;
-      doc.data = data;
-      await doc.save();
-    } else {
-      await FallSem.create({ ready, data });
-    }
-    res.status(200).send("Data updated successfully");
-  } catch (error) {
-    res.status(500).send("Error setting data");
-  }
-});
+// app.post('/setData', async (req, res) => {
+//   console.log(req.body);
+//   const { ready, data } = req.body;
+//   try {
+//     let doc = await FallSem.findOne({});
+//     if (doc) {
+//       doc.ready = ready;
+//       doc.data = data;
+//       await doc.save();
+//     } else {
+//       await FallSem.create({ ready, data });
+//     }
+//     res.status(200).send("Data updated successfully");
+//   } catch (error) {
+//     res.status(500).send("Error setting data");
+//   }
+// });
 // Update the ready status and data array in the database
